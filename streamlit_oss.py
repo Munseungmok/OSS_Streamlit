@@ -3,10 +3,10 @@ import streamlit as st
 # OSS 중간 시험 결과
 OSS_Score = [80, 70, 55, 30, 3, 3, 1, 0]
 
-st.write("#OSS 중간 시험 결과")
-st.write("## 얘들아 공부 좀 하자")
-st.write("### 집에도 일찍 가자")
+st.write("#23114156")
+st.write("## 컴퓨터소프트웨어학부")
+st.write("### 문승목")
 
 OSS_Score
 
-st.bar_chart(OSS_Score)
+st.area_chart(OSS_Score)
