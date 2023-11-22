@@ -1,12 +1,21 @@
 import streamlit as st
-
-# OSS 중간 시험 결과
-OSS_Score = [80, 70, 55, 30, 3, 3, 1, 0]
-
-st.write("#23114156")
-st.write("## 컴퓨터소프트웨어학부")
-st.write("### 문승목")
-
-OSS_Score
-
-st.area_chart(OSS_Score)
+st.title("Echo Bot\n23114156_문승목")
+# Initialize chat history
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+# Display chat messages from history on app rerun
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
+# React to user input
+if prompt := st.chat_input("What is up?"):
+    # Display user message in chat message container
+    st.chat_message("user").markdown(prompt)
+    # Add user message to chat history
+    st.session_state.messages.append({"role": "user", "content": prompt})
+    response = f"Echo: {prompt}"
+    # Display assistant response in chat message container
+    with st.chat_message("assistant"):
+        st.markdown(response)
+    # Add assistant response to chat history
+    st.session_state.messages.append({"role": "assistant", "content": response})
